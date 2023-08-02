@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.logo{
+    width:5%;
+    height:5%;
+}
+/* .admin_image{
+    width: 7%;
+    object-fit: contain;
+} */
+.card-img-top{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+.footertext{
+    color: beige;
+
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+
+}
+body{
+    overflow-x: hidden;
+}
+
