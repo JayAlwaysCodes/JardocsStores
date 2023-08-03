@@ -11,7 +11,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardocs Stores - User profile</title>
+    <title>Welcome <?php echo $_SESSION['username'] ?></title>
     <!-- bootstrap CSS link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -129,28 +129,43 @@ session_start();
                 <li class="nav-item bg-dark">
                   <a href="#" class="nav-link text-light"><h4>Your Profile</h4> </a>
                 </li>
+
+                <?php
+                $username = $_SESSION['username'];
+                $user_image = "Select * from `user_table` where username = '$username'";
+                $result_image = mysqli_query($con,$user_image);
+                $fetch_image = mysqli_fetch_array($result_image);
+                $user_image = $fetch_image['user_image'];
+                echo "
+                <li class='nav-item ''>
+                  <img src='user_images/$user_image' class='profile_img my-4' alt=''>
+                </li>
+                "
+                ?>
+                
                 <li class="nav-item ">
-                  <img src="../images/book1.jpeg" class="profile_img my-4" alt="">
+                  <a href="profile.php" class="nav-link text-light"><h6>Pending orders</h6> </a>
                 </li>
                 <li class="nav-item ">
-                  <a href="#" class="nav-link text-light"><h6>Pending orders</h6> </a>
+                  <a href="profile.php?edit_account" class="nav-link text-light"><h6>Edit account</h6> </a>
                 </li>
                 <li class="nav-item ">
-                  <a href="#" class="nav-link text-light"><h6>Edit account</h6> </a>
+                  <a href="profile.php?my_orders" class="nav-link text-light"><h6>My orders</h6> </a>
                 </li>
                 <li class="nav-item ">
-                  <a href="#" class="nav-link text-light"><h6>My orders</h6> </a>
+                  <a href="profile.php?delete_account" class="nav-link text-light"><h6>Delete account</h6> </a>
                 </li>
                 <li class="nav-item ">
-                  <a href="#" class="nav-link text-light"><h6>Delete account</h6> </a>
+                  <a href="logout.php" class="nav-link text-light"><h6>Logout</h6> </a>
                 </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light"><h6>Logout</h6> </a>
-                </li>
+                
             </ul>
 
         </div>
-        <div class="col-md-10"></div>
+        <div class="col-md-10">
+        
+         <?php get_user_order_details(); ?>
+        </div>
     </div>
 
 
