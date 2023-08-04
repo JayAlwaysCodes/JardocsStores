@@ -167,7 +167,7 @@ session_start();
             </ul>
 
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 text-center">
         
          <?php 
          get_user_order_details(); 
@@ -176,6 +176,11 @@ session_start();
          if(isset($_GET['edit_account'])){
            include('edit_account.php');
          }
+
+         //user orders
+         if(isset($_GET['my_orders'])){
+          include('my_orders.php');
+        }
          ?>
         </div>
         
