@@ -397,11 +397,16 @@ function get_user_order_details(){
         if(!isset($_GET['edit_account'])){
             if(!isset($_GET['my_orders'])){
                 if(!isset($_GET['delete_account'])){
-                    $get_orders = "Select * from `user_orders` where user_id = $user_id and order_status = 'pending' ";
+                    $get_orders = "Select * from `user_orders` where  order_status = 'pending' ";
                     $result_orders_query = mysqli_query($con,$get_orders);
                     $row_count = mysqli_num_rows($result_orders_query);
                     if($row_count>0){
-                        echo "<h3 class='text-center text-success' >You have <span class='text-danger'>$row_count</span> pending orders</h3>";
+                         echo "<h3 class='text-center text-success my-5' >You have <span class='text-danger'>$row_count</span> pending orders</h3>";
+                        echo " <p class='text-center'><a href='profile.php?my_orders' class='text-dark'>Order Details</a></p>";
+                        
+                    }else{
+                        echo "<h3 class='text-center'>You have No pending order</h3>";
+                        echo " <p class='text-center'><a href='../index.php' class='text-dark'>Explore products</a></p>";
                     }
             
                 }

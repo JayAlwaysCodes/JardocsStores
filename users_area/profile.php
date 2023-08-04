@@ -30,6 +30,11 @@ session_start();
         display: block;
         margin: auto;
       }
+      .edit_img{
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
 
     </style>
 
@@ -164,8 +169,16 @@ session_start();
         </div>
         <div class="col-md-10">
         
-         <?php get_user_order_details(); ?>
+         <?php 
+         get_user_order_details(); 
+         
+         //edit account
+         if(isset($_GET['edit_account'])){
+           include('edit_account.php');
+         }
+         ?>
         </div>
+        
     </div>
 
 
