@@ -181,6 +181,12 @@ session_start();
          if(isset($_GET['my_orders'])){
           include('my_orders.php');
         }
+
+        //delete account
+         //user orders
+         if(isset($_GET['delete_account'])){
+          include('delete_account.php');
+        }
          ?>
         </div>
         
