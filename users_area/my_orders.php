@@ -50,11 +50,17 @@ $user_id = $fetch_data['user_id'];
                 <td>$invoice_number</td>
                 <td>$total_products</td>
                 <td>$order_date</td>
-                <td>$order_status</td>
-                <td><a href='confirm_payment.php' class='text-light'>Confirm</a></td>
+                <td>$order_status</td>";
+        if($order_status=='Completed'){
+            echo "<td>Paid</td>";
+        }else{
+            echo "<td><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
             </tr>
             
             ";
+        }
+        
+            
             $number++;
 
         }
