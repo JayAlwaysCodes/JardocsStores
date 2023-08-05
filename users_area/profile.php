@@ -68,7 +68,7 @@ session_start();
               <a class="nav-link" href="../cart.php"><i class="fa-solid fa-shopping-cart" ></i><sup><?php cart_item()?></sup></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Total Price: N<?php total_cart_price(); ?> </a>
+              <a class="nav-link" href="">Total Price: N<?php total_cart_price(); ?> </a>
             </li>
             </ul>
 
