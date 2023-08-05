@@ -1,3 +1,9 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_functions.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +26,35 @@
             width: 100px;
             object-fit: contain;
         }
+        .footer{
+            position: absolute;
+            bottom: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        .product_img{
+            width: 100px;
+            margin: 0;
+            padding: 0;
+            object-fit: contain;
+        }
     </style>
     <!--sweet alert link-->
-    <script src="<scrip src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- <script src="<scrip src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
 
 </head>
 <body>
     <!--nav bar-->
     <div class = "container-fluid p-0" >
         <!--first child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
             <div class="container-fluid">
                 <img src="../images/logo.png" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Welcome Admin</a>
+                            <a href="" class="nav-link text-light">Welcome Admin</a>
                         </li>
                     </ul>
                 </nav>
@@ -60,7 +79,7 @@
                 </div>
                 <div class="button text-center">
                     <button class="my-3"><a href="insert_product.php" class="nav-link text-dark bg-inf0 my-1">Insert Products</a></button>
-                    <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">View Products</a></button>
+                    <button class="my-3"><a href="index.php?view_products" class="nav-link text-dark bg-inf0 my-1">View Products</a></button>
                     <button class="my-3"><a href="index.php?insert_category" class="nav-link text-dark bg-inf0 my-1">Insert Categories</a></button>
                     <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">View Categories</a></button>
                     <button class="my-3"><a href="index.php?insert_brand" class="nav-link text-dark bg-inf0 my-1">Insert Brands</a></button>
@@ -86,13 +105,23 @@
 
 
             }
+            if(isset($_GET['view_products'])){
+                include('view_products.php');
+
+
+            }
+            if(isset($_GET['edit_product'])){
+                include('edit_product.php');
+
+
+            }
             ?>
         </div>
 
         <!-- last child-->
-        <div class="navbar-dark bg-dark p-3 text-center footer">
-            <p class="footertext"> Designed for study purposes by Johnson-2023</p>
-        </div>
+        <?php
+    include("../includes/footer.php");
+    ?>
     </div>
     
 
