@@ -23,7 +23,7 @@
             <td><?php echo $number ?></td>
             <td><?php echo $brand_title ?></td>
             <td><a href='index.php?edit_brand=<?php echo $brand_id ?>' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
-            <td><a href='index.php?delete_brand=<?php echo $brand_id ?>' class='text-light' type="button"data-toggle="modal" data-target="#exampleModal"><i class='fa-solid fa-trash'></i></a></td>
+            <td><a  class='text-light' type="button"data-toggle="modal" data-target="#exampleModal"><i class='fa-solid fa-trash'></i></a></td>
         
         </tr>
         <?php

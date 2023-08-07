@@ -17,6 +17,7 @@
         $result_orders = mysqli_query($con, $select_orders);
         $number = 0;
         while($row=mysqli_fetch_assoc($result_orders)){
+            
             $order_id = $row['order_id'];
             $amount_due = $row['amount_due'];
             $invoice_number = $row['invoice_number'];

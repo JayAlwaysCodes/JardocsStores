@@ -15,7 +15,7 @@ if(isset($_GET['order_id'])){
 if(isset($_POST['confirm_payment'])){
     $invoice_number = $_POST['invoice_number'];
     $amount = $_POST['amount'];
-    $payment_mode = $_POST['$payment_mode'];
+    $payment_mode = $_POST['payment_mode'];
 
     $insert_query = "insert into `user_payments` (order_id, invoice_number,amount,payment_mode) values($order_id,$invoice_number,$amount,'$payment_mode')";
     $result = mysqli_query($con, $insert_query);
@@ -52,12 +52,12 @@ if(isset($_POST['confirm_payment'])){
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode"class="form-select m-auto w-50">
                     <option>Select Payment Mode</option>
-                    <option>Bank Transfer</option>
-                    <option>card Payment</option>
-                    <option>PayPal</option>
-                    <option>Crypto Currency</option>
-                    <option>Cash on Delivery</option>
-                    <option>Pay Offline</option>
+                    <option value="Bank Transfer" >Bank Transfer</option>
+                    <option value="card Payment">card Payment</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="Crypto">Crypto Currency</option>
+                    <option value="Cash">Cash on Delivery</option>
+                    <option value="Offline">Pay Offline</option>
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">

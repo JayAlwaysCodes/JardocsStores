@@ -84,8 +84,8 @@ include('../functions/common_functions.php');
                     <button class="my-3"><a href="index.php?view_categories" class="nav-link text-dark bg-inf0 my-1">View Categories</a></button>
                     <button class="my-3"><a href="index.php?insert_brand" class="nav-link text-dark bg-inf0 my-1">Insert Brands</a></button>
                     <button class="my-3"><a href="index.php?view_brands" class="nav-link text-dark bg-inf0 my-1">View Brands</a></button>
-                    <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">All Orders</a></button>
-                    <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">All Payments</a></button>
+                    <button class="my-3"><a href="index.php?all_orders" class="nav-link text-dark bg-inf0 my-1">All Orders</a></button>
+                    <button class="my-3"><a href="index.php?user_payments" class="nav-link text-dark bg-inf0 my-1">All Payments</a></button>
                     <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">List Users</a></button>
                     <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">Log Out</a></button>
                 </div>
@@ -151,6 +151,28 @@ include('../functions/common_functions.php');
 
 
             }
+            if(isset($_GET['all_orders'])){
+                include('all_orders.php');
+
+
+            }
+            if(isset($_GET['delete_order'])){
+                include('delete_order.php');
+
+
+            }
+            
+        
+        if(isset($_GET['user_payments'])){
+            include('user_payments.php');
+
+
+        }
+        if(isset($_GET['delete_payment'])){
+            include('delete_payment.php');
+
+
+        }
             ?>
         </div>
 
