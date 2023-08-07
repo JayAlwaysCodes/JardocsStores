@@ -86,7 +86,7 @@ include('../functions/common_functions.php');
                     <button class="my-3"><a href="index.php?view_brands" class="nav-link text-dark bg-inf0 my-1">View Brands</a></button>
                     <button class="my-3"><a href="index.php?all_orders" class="nav-link text-dark bg-inf0 my-1">All Orders</a></button>
                     <button class="my-3"><a href="index.php?user_payments" class="nav-link text-dark bg-inf0 my-1">All Payments</a></button>
-                    <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">List Users</a></button>
+                    <button class="my-3"><a href="index.php?list_users" class="nav-link text-dark bg-inf0 my-1">List Users</a></button>
                     <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">Log Out</a></button>
                 </div>
             </div>
@@ -170,6 +170,16 @@ include('../functions/common_functions.php');
         }
         if(isset($_GET['delete_payment'])){
             include('delete_payment.php');
+
+
+        }
+        if(isset($_GET['list_users'])){
+            include('list_users.php');
+
+
+        }
+        if(isset($_GET['delete_user'])){
+            include('delete_user.php');
 
 
         }
