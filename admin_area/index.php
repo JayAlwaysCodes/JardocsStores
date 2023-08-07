@@ -87,7 +87,7 @@ include('../functions/common_functions.php');
                     <button class="my-3"><a href="index.php?all_orders" class="nav-link text-dark bg-inf0 my-1">All Orders</a></button>
                     <button class="my-3"><a href="index.php?user_payments" class="nav-link text-dark bg-inf0 my-1">All Payments</a></button>
                     <button class="my-3"><a href="index.php?list_users" class="nav-link text-dark bg-inf0 my-1">List Users</a></button>
-                    <button class="my-3"><a href="" class="nav-link text-dark bg-inf0 my-1">Log Out</a></button>
+                    <button class="my-3"><a href="index.php?admin_logout" class="nav-link text-dark bg-inf0 my-1">Log Out</a></button>
                 </div>
             </div>
         </div>
@@ -180,6 +180,11 @@ include('../functions/common_functions.php');
         }
         if(isset($_GET['delete_user'])){
             include('delete_user.php');
+
+
+        }
+        if(isset($_GET['admin_logout'])){
+            include('admin_logout.php');
 
 
         }

@@ -1,3 +1,9 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_functions.php');
+@session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,3 +58,37 @@
     </div>
 </body>
 </html>
+
+<?php
+
+global $con;
+
+if (isset($_POST['login'])) {
+
+    $admin_username = $_POST['username'];
+    $admin_password = $_POST['password'];
+
+
+    $select_query = "Select * from `admin_table` where admin_name='$admin_username' ";
+    $result = mysqli_query($con, $select_query);
+    $rows_count = mysqli_num_rows($result);
+    $row_data = mysqli_fetch_assoc($result);
+
+    if ($rows_count > 0) {
+        $_SESSION['admin_name'] = $admin_username;
+        if (password_verify($admin_password, $row_data['admin_password'])) {
+            // echo "<script>alert('Login Successful')</script>";
+            
+                $_SESSION['admin_name'] = $admin_username;
+                echo "<script>alert('Login Successful')</script>";
+                echo "<script>window.open('index.php', '_self')</script>";
+
+             
+
+        }else {
+            echo "<script>alert('Wrong password')</script>";
+        }
+    }
+}
+
+?>

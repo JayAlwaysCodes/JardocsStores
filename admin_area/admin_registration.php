@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_functions.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,3 +63,43 @@
     </div>
 </body>
 </html>
+
+<!--php code -->
+
+<?php
+global $con;
+if(isset($_POST['register'])){
+    $admin_username = $_POST['username'];
+    $admin_email = $_POST['email'];
+    $admin_password = $_POST['password'];
+    $hash_password = password_hash($admin_password, PASSWORD_DEFAULT);
+    $conf_password = $_POST['conf_password'];
+    
+
+    //select query
+    $select_query = "Select * from `admin_table` where admin_name = '$admin_username' OR admin_email = '$admin_email'";
+    $result = mysqli_query($con, $select_query);
+    $rows_count = mysqli_num_rows($result);
+    if($rows_count>0){
+        echo "<script>alert('User already exist')</script>";
+    }else if($admin_password != $conf_password){
+        echo "<script>alert('passwords do not match')</script>";
+
+    }
+    
+    
+    else{
+         //insert query
+    $insert_query = "insert into `admin_table` (admin_name,admin_email,admin_password) values('$admin_username','$admin_email', '$hash_password')";
+    $sql_execute = mysqli_query($con,$insert_query);
+    if($sql_execute){
+        echo "<script>alert('Admin Successfully Registered')</script>";
+            echo "<script>window.open('admin_login.php', '_self')</script>";
+    }else{
+        die(mysqli_error($con));
+    }
+    }
+  
+}
+
+?>
