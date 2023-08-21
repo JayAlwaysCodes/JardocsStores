@@ -1,5 +1,5 @@
 <?php
-// include('./includes/connect.php');
+//include('./includes/connect.php');
 
 //getting production
 function getproducts(){
@@ -326,8 +326,8 @@ function cart(){
         global $con;
         $ip = getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
-        $selct_query = "Select * from `cart_details` where ip_address = '$ip' and product_id = $get_product_id";
-        $result_query = mysqli_query($con, $selct_query);
+        $select_query = "Select * from `cart_details` where ip_address = '$ip' and product_id = $get_product_id";
+        $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows > 0) {
             echo "<script>alert('This Item is already present inside your cart!')</script>";
